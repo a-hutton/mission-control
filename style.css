@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@500;700&display=swap");
+
+:root {
+  --clr-primary: #351c44;
+  --clr-btn: hsl(0, 87%, 56%);
+  --clr-btn-dark: hsl(0, 87%, 36%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Exa", sans-serif;
+  background-color: #333;
+  color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.btn-launch {
+  background-color: var(--clr-btn);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 0.4rem 0 0 var(--clr-btn-dark);
+}
+
+.header {
+  background-color: var(--clr-primary);
+  max-width: 100%;
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 10rem 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 4rem;
+  border-radius: 1rem;
+}
+
+.header-text {
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.code {
+  background-color: #222;
+  font-size: 0.6rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  overflow: auto;
+}
+
+.chart-wrapper {
+  height: 12rem;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.logo-spinner {
+  position: relative;
+  width: 5rem;
+  aspect-ratio: 1;
+  perspective: 20rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(-90deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(90deg);
+  }
+}
+
+.logo-spinner::before,
+.logo-spinner::after {
+  content: "";
+  background-size: cover;
+  position: absolute;
+  width: 5rem;
+  aspect-ratio: 1;
+  transform: rotateY(-90deg);
+  --spin-speed: 3s;
+}
+
+.logo-spinner::before {
+  background-image: url(./images/lboro-space-dark.jpeg);
+  animation: spin var(--spin-speed) linear calc(var(--spin-speed) / 2) infinite;
+}
+
+.logo-spinner::after {
+  background-image: url(./images/lsu.jpg);
+  animation: spin var(--spin-speed) linear infinite;
+}
